@@ -31,7 +31,7 @@ namespace KolekcjaKart
         {
             var mapperCfg = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Card, CardViewModel>();
+                cfg.CreateMap<Card, CardViewModel>().ReverseMap();
             });
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>();

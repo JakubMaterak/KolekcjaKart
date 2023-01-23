@@ -16,7 +16,12 @@ namespace KolekcjaKart.Logic
         }
         public ICardManager AddCard(Card card)
         {
+            if (card.Text is null)
+            {
+                card.Text = "";
+            }
             _db.Add(card);
+            _db.SaveChanges();
             return this;
         }
 
@@ -35,6 +40,7 @@ namespace KolekcjaKart.Logic
             Card card = new Card() { CardId = id };
             _db.Cards.Attach(card);
             _db.Cards.Remove(card);
+            _db.SaveChanges();
             return this;
         }
     }

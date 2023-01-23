@@ -1,4 +1,5 @@
-﻿@model KolekcjaKart.Models.CardViewModel
+﻿@using KolekcjaKart.Data.Models
+@model KolekcjaKart.Models.CardViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -17,6 +18,16 @@
                 <label asp-for="Text" class="control-label">Tekst:</label>
                 <input asp-for="Text" class="form-control" />
                 <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardEffectType" class="control-label">Typ karty:</label>
+                @Html.DropDownList("CardEffectType", Html.GetEnumSelectList<CardEffectType>(), new { @class = "form-control" })
+                <span asp-validation-for="CardEffectType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pool" class="control-label">Pula:</label>
+                @Html.DropDownList("Pool", Html.GetEnumSelectList<Pool>(), new { @class = "form-control" })
+                <span asp-validation-for="Pool" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Power" class="control-label">Siła:</label>

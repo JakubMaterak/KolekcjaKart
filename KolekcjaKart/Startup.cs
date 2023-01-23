@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using KolekcjaKart.Data;
+using KolekcjaKart.Logic;
 
 namespace KolekcjaKart
 {
@@ -27,6 +28,7 @@ namespace KolekcjaKart
         {
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>();
+            services.AddScoped<ICardManager, CardManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 using KolekcjaKart.Data;
 using KolekcjaKart.Logic;
+using AutoMapper;
+using KolekcjaKart.Models;
+using KolekcjaKart.Data.Models;
 
 namespace KolekcjaKart
 {
@@ -26,9 +29,14 @@ namespace KolekcjaKart
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var mapperCfg = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Card, CardViewModel>();
+            });
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>();
             services.AddScoped<ICardManager, CardManager>();
+            services.AddSingleton(mapperCfg.CreateMapper());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

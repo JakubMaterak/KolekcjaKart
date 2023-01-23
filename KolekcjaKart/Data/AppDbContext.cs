@@ -20,6 +20,18 @@ namespace KolekcjaKart.Data
         {
             optionsBuilder.UseSqlServer(_configuration.GetConnectionString("AppDb"));
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Card>()
+                .Property(c => c.Url)
+                .HasDefaultValue("");
+
+            modelBuilder.Entity<Card>()
+                .Property(c => c.Text)
+                .HasDefaultValue("");
+        }
+
         public virtual DbSet<Card> Cards { get; set; }
     }
 }

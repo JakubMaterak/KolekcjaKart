@@ -15,5 +15,6 @@ namespace KolekcjaKart.Models
         public string Text { get; set; } = "";
         public int Power { get; set; }
         public int Cost { get; set; }
+        public string Url { get; set; }
     }
 }

@@ -26,5 +26,7 @@ namespace KolekcjaKart.Data.Models
         [Required]
         [Range(0, 100)]
         public int Cost { get; set; }
+        [Required]
+        public string Url { get; set; }
     }
 }

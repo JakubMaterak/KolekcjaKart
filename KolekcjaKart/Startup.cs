@@ -63,7 +63,7 @@ namespace KolekcjaKart
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Card}/{action=Index}/{id?}");
             });
         }
     }

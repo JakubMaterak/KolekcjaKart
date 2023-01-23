@@ -83,7 +83,8 @@ namespace KolekcjaKart.Controllers
         // GET: CardController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var card = _cardManager.GetCard(id);
+            return View(_mapper.Map<CardViewModel>(card));
         }
 
         // POST: CardController/Delete/5
@@ -93,6 +94,7 @@ namespace KolekcjaKart.Controllers
         {
             try
             {
+                _cardManager.RemoveCard(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

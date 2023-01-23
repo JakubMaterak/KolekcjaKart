@@ -1,0 +1,16 @@
+﻿@model KolekcjaKart.Models.CardViewModel
+
+@{
+    ViewData["Title"] = "Czy napewno usunąć";
+}
+
+<h1>Potwierdzenie usunięcia</h1>
+<div>
+    <h4>Czy napewno chcesz usunąć następującą kartę?</h4>
+    <h5>@Model.Name</h5>
+    <img class="card-img-top" src="@Model.Url" alt="Card image">
+    <form asp-action="Delete" method="post">
+        <input type="hidden" id="id" value="@Model.CardId"/>
+        <button class="btn btn-danger">Potwierdź usunięcie</button>
+    </form>
+</div>

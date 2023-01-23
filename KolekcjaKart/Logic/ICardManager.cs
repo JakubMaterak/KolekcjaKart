@@ -13,5 +13,6 @@ namespace KolekcjaKart.Logic
         ICardManager RemoveCard(int id);
         List<Card> GetCards();
         Card GetCard(int id);
+        ICardManager ModifyCard(Card card);
     }
 }

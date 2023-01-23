@@ -62,16 +62,17 @@ namespace KolekcjaKart.Controllers
         // GET: HomeController1/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(_mapper.Map<CardViewModel>(_cardManager.GetCard(id)));
         }
 
         // POST: CardController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, CardViewModel cardVm)
         {
             try
             {
+                _cardManager.ModifyCard(_mapper.Map<Card>(cardVm));
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -35,6 +35,14 @@ namespace KolekcjaKart.Logic
             return _db.Cards.ToList();
         }
 
+        public ICardManager ModifyCard(Card card)
+        {
+            _db.Update(card);
+            card.Text = card.Text ?? "";
+            _db.SaveChanges();
+            return this;
+        }
+
         public ICardManager RemoveCard(int id)
         {
             Card card = new Card() { CardId = id };
